@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  axios.defaults.baseURL = 'https://api.realworld.io/api';
 
   async function getData() {
-    const res = await axios.get('https://restapi.okdevtest.net/people');
+    const res = await axios.get('/people');
     console.log(res.data);
   }
 
@@ -29,7 +31,7 @@ function App() {
         </p>
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
